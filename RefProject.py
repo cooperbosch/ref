@@ -11,6 +11,8 @@ print("\n")
 result = requests.get(user_input)
 
 doc = BeautifulSoup(result.text, "html.parser")
+# url = "https://www.soccerbase.com/referees/home.sd?tourn_id=2039"
+# doc = BeautifulSoup(url, "html.parser")
 #print(doc) Making sure the Webpage has no blockers - explained below in block comment
 
 Referees = doc.find_all('table', class_="table referee")
@@ -20,6 +22,7 @@ count = 0
 
 # This is just where I'm putting my file - you can put yours wherever makes sense for you
 filename = "E:/Download/Referee_Analysis.csv"
+# filename = "Referee_Analysis.csv"
 
 with open(filename, mode='w', newline='') as file:
     writer = csv.writer(file)
